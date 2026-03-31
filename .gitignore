@@ -6,3 +6,4 @@ _temp_*.html
 screenshot-full.mjs
 screenshot-puppeteer.mjs
 scrape-assets.mjs
+.vercel
