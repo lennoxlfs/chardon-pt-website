@@ -231,8 +231,13 @@
     }
     .link-underline:hover::after { width: 100%; }
 
-    /* Mobile menu */
-    .mobile-menu { clip-path: inset(0 0 100% 0); transition: clip-path 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+    /* Mobile menu — liquid glass */
+    .mobile-menu {
+      clip-path: inset(0 0 100% 0);
+      transition: clip-path 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      backdrop-filter: blur(24px) saturate(1.6);
+      -webkit-backdrop-filter: blur(24px) saturate(1.6);
+    }
     .mobile-menu.open { clip-path: inset(0 0 0 0); }
 
     /* FAQ accordion */
@@ -344,18 +349,18 @@
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="mobile-menu lg:hidden absolute left-0 right-0 top-full bg-navy-900/98 border-t border-white/5">
-      <div class="px-4 py-6 space-y-1">
-        <a href="#about" class="block px-4 py-3 text-base font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors duration-200">About</a>
-        <a href="#services" class="block px-4 py-3 text-base font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors duration-200">Services</a>
-        <a href="#classes" class="block px-4 py-3 text-base font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors duration-200">Classes</a>
-        <a href="#golf" class="block px-4 py-3 text-base font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors duration-200">Golf Performance</a>
-        <a href="#reviews" class="block px-4 py-3 text-base font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors duration-200">Reviews</a>
-        <a href="#podcast" class="block px-4 py-3 text-base font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors duration-200">Podcast</a>
-        <a href="#faq" class="block px-4 py-3 text-base font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors duration-200">FAQ</a>
-        <a href="#contact" class="block px-4 py-3 text-base font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors duration-200">Contact</a>
-        <div class="pt-4 border-t border-white/10">
-          <a href="tel:4402997171" class="flex items-center gap-2 px-4 py-3 text-base font-medium text-white/60">
+    <div id="mobile-menu" class="mobile-menu lg:hidden absolute left-0 right-0 top-full bg-navy-950/85 border-t border-white/10 shadow-2xl">
+      <div class="px-4 py-5 space-y-0.5">
+        <a href="#about" class="block px-4 py-3 text-base font-semibold text-white hover:bg-white/10 rounded-lg transition-colors duration-200">About</a>
+        <a href="#services" class="block px-4 py-3 text-base font-semibold text-white hover:bg-white/10 rounded-lg transition-colors duration-200">Services</a>
+        <a href="#classes" class="block px-4 py-3 text-base font-semibold text-white hover:bg-white/10 rounded-lg transition-colors duration-200">Classes</a>
+        <a href="#golf" class="block px-4 py-3 text-base font-semibold text-white hover:bg-white/10 rounded-lg transition-colors duration-200">Golf Performance</a>
+        <a href="#reviews" class="block px-4 py-3 text-base font-semibold text-white hover:bg-white/10 rounded-lg transition-colors duration-200">Reviews</a>
+        <a href="#podcast" class="block px-4 py-3 text-base font-semibold text-white hover:bg-white/10 rounded-lg transition-colors duration-200">Podcast</a>
+        <a href="#faq" class="block px-4 py-3 text-base font-semibold text-white hover:bg-white/10 rounded-lg transition-colors duration-200">FAQ</a>
+        <a href="#contact" class="block px-4 py-3 text-base font-semibold text-white hover:bg-white/10 rounded-lg transition-colors duration-200">Contact</a>
+        <div class="pt-3 mt-2 border-t border-white/15">
+          <a href="tel:4402997171" class="flex items-center gap-2 px-4 py-3 text-base font-medium text-white/80">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
             (440) 299-7171
           </a>
