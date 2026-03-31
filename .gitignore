@@ -1,0 +1,8 @@
+node_modules/
+.DS_Store
+temporary screenshots/
+_noanimation.html
+_temp_*.html
+screenshot-full.mjs
+screenshot-puppeteer.mjs
+scrape-assets.mjs
