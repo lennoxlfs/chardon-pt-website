@@ -7,3 +7,10 @@ screenshot-full.mjs
 screenshot-puppeteer.mjs
 scrape-assets.mjs
 .vercel
+
+# Internal documents & reports
+*.docx
+internal-report.md
+client-report.md
+brand-package.md
+research-package.md
