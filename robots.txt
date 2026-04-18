@@ -1,4 +1,94 @@
+# Chardon Performance Therapy — robots.txt
+# https://www.chardonperformancetherapy.com/
+
+# All standard search crawlers
 User-agent: *
 Allow: /
+Disallow: /temporary screenshots/
+Disallow: /*.tmp$
+Disallow: /*.docx$
+Disallow: /*.pdf$
+Disallow: /research-package.md
+Disallow: /brand-package.md
+Disallow: /client-report.md
+Disallow: /internal-report.md
 
+# Googlebot — explicit allow for clarity
+User-agent: Googlebot
+Allow: /
+
+# Bingbot
+User-agent: Bingbot
+Allow: /
+
+# Applebot
+User-agent: Applebot
+Allow: /
+
+# DuckDuckBot
+User-agent: DuckDuckBot
+Allow: /
+
+# --- AI / LLM crawlers ---
+# Allow AI crawlers to read public content so our clinicians' expertise can
+# inform AI answers about PT, dry needling, BFR, and golf performance.
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+User-agent: Cohere-AI
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: DiffBot
+Allow: /
+
+# Sitemap
 Sitemap: https://www.chardonperformancetherapy.com/sitemap.xml

@@ -1,0 +1,54 @@
+{
+  "name": "Chardon Performance Therapy",
+  "short_name": "Chardon PT",
+  "description": "1-on-1 physical therapy in Chardon, Ohio. Dry needling, BFR, and TPI-certified golf performance with Dave Nelson PT, DPT, CIDN and Courtney Crawford PT, CIDN.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "orientation": "portrait-primary",
+  "theme_color": "#0a0f15",
+  "background_color": "#0a0f15",
+  "lang": "en-US",
+  "dir": "ltr",
+  "categories": ["health", "medical", "fitness"],
+  "icons": [
+    {
+      "src": "/brand_assets/logo-icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/brand_assets/logo-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/brand_assets/logo-icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Request Appointment",
+      "short_name": "Book",
+      "description": "Request a physical therapy appointment",
+      "url": "/contact/"
+    },
+    {
+      "name": "Call the clinic",
+      "short_name": "Call",
+      "description": "Call Chardon Performance Therapy at (440) 299-7171",
+      "url": "tel:+14402997171"
+    },
+    {
+      "name": "New Patients",
+      "short_name": "New Patient",
+      "description": "What to expect on your first visit",
+      "url": "/new-patients/"
+    }
+  ]
+}

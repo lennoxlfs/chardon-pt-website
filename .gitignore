@@ -10,6 +10,9 @@ scrape-assets.mjs
 
 # Internal documents & reports
 *.docx
+*.pdf
+*.tmp
+.~lock*
 internal-report.md
 client-report.md
 brand-package.md
