@@ -126,10 +126,7 @@
   };
 
   /* ---------- Body Map interactions ---------- */
-  const bodyFigure = document.querySelector('.body-map__figure');
-  const bodySvg = document.querySelector('.body-map__svg');
-  const bodyGlow = document.querySelector('.body-map__glow');
-  const hotspots = document.querySelectorAll('.body-hotspot');
+  const hotspots = document.querySelectorAll('.region-card[data-region], .body-hotspot[data-region]');
   const bodyPanel = document.querySelector('.body-map__panel-inner');
 
   function renderRegion(region) {
@@ -167,25 +164,9 @@
     bodyPanel.style.animation = '';
   }
 
-  function moveGlow(hotspot) {
-    if (!bodyGlow || !bodyFigure) return;
-    // Compute glow center from the hotspot's inline percentages
-    const topPct = parseFloat(hotspot.style.top);
-    const leftPct = parseFloat(hotspot.style.left);
-    if (isNaN(topPct) || isNaN(leftPct)) return;
-    // SVG viewBox is 0 0 280 560
-    const cx = (leftPct / 100) * 280;
-    const cy = (topPct / 100) * 560;
-    bodyGlow.setAttribute('cx', String(cx));
-    bodyGlow.setAttribute('cy', String(cy));
-    bodyGlow.setAttribute('r', '55');
-    bodyGlow.classList.add('is-active');
-  }
-
   function activateHotspot(hotspot) {
     hotspots.forEach(function (h) { h.classList.remove('is-active'); });
     hotspot.classList.add('is-active');
-    moveGlow(hotspot);
     renderRegion(hotspot.dataset.region);
   }
 

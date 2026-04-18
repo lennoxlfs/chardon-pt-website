@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@500;600;700;800&display=swap">
-  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/main.css?v=20260418b">
 
   <script type="application/ld+json">
   {
@@ -203,72 +203,88 @@
           <p class="lead">Tap a region to see conditions we treat and how we treat them. Keyboard accessible — use Tab and Enter.</p>
         </div>
 
-        <div class="body-map reveal">
-          <div class="body-map__figure" role="group" aria-label="Interactive human body diagram — tap a region to reveal conditions treated">
-            <svg class="body-map__svg" viewBox="0 0 280 560" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <radialGradient id="glowAccent">
-                  <stop offset="0%" stop-color="#a1b50f" stop-opacity="0.55"/>
-                  <stop offset="70%" stop-color="#a1b50f" stop-opacity="0.08"/>
-                  <stop offset="100%" stop-color="#a1b50f" stop-opacity="0"/>
-                </radialGradient>
-              </defs>
-
-              <circle class="body-map__glow" cx="-100" cy="-100" r="55" fill="url(#glowAccent)"/>
-
-              <g fill="none" stroke="rgba(200, 215, 240, 0.65)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="140" cy="62" r="28" fill="rgba(18, 28, 44, 0.85)" stroke="rgba(200, 215, 240, 0.7)"/>
-                <line x1="140" y1="92" x2="140" y2="112"/>
-                <line x1="140" y1="112" x2="140" y2="330"/>
-                <line x1="95" y1="130" x2="185" y2="130"/>
-                <line x1="95" y1="130" x2="68" y2="250"/>
-                <line x1="185" y1="130" x2="212" y2="250"/>
-                <circle cx="68" cy="250" r="6" fill="rgba(18, 28, 44, 0.85)"/>
-                <circle cx="212" cy="250" r="6" fill="rgba(18, 28, 44, 0.85)"/>
-                <line x1="112" y1="330" x2="168" y2="330"/>
-                <line x1="112" y1="330" x2="98" y2="490"/>
-                <line x1="168" y1="330" x2="182" y2="490"/>
-                <line x1="82" y1="498" x2="114" y2="498"/>
-                <line x1="166" y1="498" x2="198" y2="498"/>
-              </g>
-            </svg>
-
-            <!-- Hotspots — dot anchored on pain point, label flies out to left or right -->
-            <button class="body-hotspot" data-region="tmj" data-side="right" style="top:12.9%;left:55.4%;" aria-label="TMJ and jaw pain">
-              <span class="body-hotspot__dot"></span>
-              <span class="body-hotspot__label">TMJ / Jaw</span>
+        <div class="body-map body-map--grid reveal">
+          <div class="body-map__regions" role="tablist" aria-label="Choose a body region">
+            <button class="region-card" data-region="tmj" aria-label="TMJ and jaw pain">
+              <span class="region-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-7 7v1a5 5 0 0 0 3 4.58V18a3 3 0 0 0 3 3h2a3 3 0 0 0 3-3v-3.42A5 5 0 0 0 19 10V9a7 7 0 0 0-7-7Z"/><path d="M9 13h6"/></svg>
+              </span>
+              <span class="region-card__text">
+                <span class="region-card__name">TMJ / Jaw</span>
+                <span class="region-card__sub">Clicking · headaches</span>
+              </span>
             </button>
-            <button class="body-hotspot" data-region="neck" data-side="right" style="top:18.2%;left:50%;" aria-label="Neck pain">
-              <span class="body-hotspot__dot"></span>
-              <span class="body-hotspot__label">Neck</span>
+            <button class="region-card" data-region="neck" aria-label="Neck pain">
+              <span class="region-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8"/><path d="M12 3v5"/><path d="M9 8h6l-1 6h-4z"/><path d="M10 14v4a2 2 0 0 0 4 0v-4"/></svg>
+              </span>
+              <span class="region-card__text">
+                <span class="region-card__name">Neck</span>
+                <span class="region-card__sub">Stiffness · nerve pain</span>
+              </span>
             </button>
-            <button class="body-hotspot" data-region="shoulder" data-side="left" style="top:23.2%;left:33.9%;" aria-label="Shoulder pain">
-              <span class="body-hotspot__dot"></span>
-              <span class="body-hotspot__label">Shoulder</span>
+            <button class="region-card" data-region="shoulder" aria-label="Shoulder pain">
+              <span class="region-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11c0-3.87 3.58-7 8-7s8 3.13 8 7"/><path d="M4 11v5a3 3 0 0 0 3 3h2l1-4"/><path d="M20 11v5a3 3 0 0 1-3 3h-2l-1-4"/></svg>
+              </span>
+              <span class="region-card__text">
+                <span class="region-card__name">Shoulder</span>
+                <span class="region-card__sub">Rotator cuff · overhead</span>
+              </span>
             </button>
-            <button class="body-hotspot" data-region="back" data-side="right" style="top:39.3%;left:50%;" aria-label="Back and spine pain">
-              <span class="body-hotspot__dot"></span>
-              <span class="body-hotspot__label">Back &amp; Spine</span>
+            <button class="region-card" data-region="elbow" aria-label="Elbow pain">
+              <span class="region-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v7"/><path d="M6 10a3 3 0 0 0 3 3h2"/><path d="M11 13l4 8"/><circle cx="6" cy="10" r="1.2" fill="currentColor"/></svg>
+              </span>
+              <span class="region-card__text">
+                <span class="region-card__name">Elbow</span>
+                <span class="region-card__sub">Tennis · golfer's elbow</span>
+              </span>
             </button>
-            <button class="body-hotspot" data-region="elbow" data-side="left" style="top:33.9%;left:29.3%;" aria-label="Elbow pain">
-              <span class="body-hotspot__dot"></span>
-              <span class="body-hotspot__label">Elbow</span>
+            <button class="region-card" data-region="wrist" aria-label="Wrist and hand pain">
+              <span class="region-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11V5.5a1.5 1.5 0 0 1 3 0V10"/><path d="M10 10V4.5a1.5 1.5 0 0 1 3 0V10"/><path d="M13 10V5a1.5 1.5 0 0 1 3 0v6"/><path d="M16 11V7a1.5 1.5 0 0 1 3 0v8a6 6 0 0 1-6 6h-3a6 6 0 0 1-5.66-4L2.5 12c-.3-.6.1-1.4.8-1.5l1.2-.2c.5-.1 1 .1 1.3.5L7 13"/></svg>
+              </span>
+              <span class="region-card__text">
+                <span class="region-card__name">Wrist / Hand</span>
+                <span class="region-card__sub">Carpal tunnel · grip</span>
+              </span>
             </button>
-            <button class="body-hotspot" data-region="hip" data-side="right" style="top:58.9%;left:55.7%;" aria-label="Hip pain">
-              <span class="body-hotspot__dot"></span>
-              <span class="body-hotspot__label">Hip</span>
+            <button class="region-card" data-region="back" aria-label="Back and spine pain">
+              <span class="region-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M9 5h6"/><path d="M8 9h8"/><path d="M8.5 13h7"/><path d="M9 17h6"/></svg>
+              </span>
+              <span class="region-card__text">
+                <span class="region-card__name">Back &amp; Spine</span>
+                <span class="region-card__sub">Discs · sciatica · SI</span>
+              </span>
             </button>
-            <button class="body-hotspot" data-region="wrist" data-side="left" style="top:44.6%;left:24.3%;" aria-label="Wrist and hand pain">
-              <span class="body-hotspot__dot"></span>
-              <span class="body-hotspot__label">Wrist / Hand</span>
+            <button class="region-card" data-region="hip" aria-label="Hip pain">
+              <span class="region-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="10" r="2.4"/><circle cx="16" cy="10" r="2.4"/><path d="M8 12.4v3.6a3 3 0 0 0 3 3h0M16 12.4v3.6a3 3 0 0 1-3 3h0"/><path d="M11 19v2M13 19v2"/></svg>
+              </span>
+              <span class="region-card__text">
+                <span class="region-card__name">Hip</span>
+                <span class="region-card__sub">Impingement · labrum</span>
+              </span>
             </button>
-            <button class="body-hotspot" data-region="knee" data-side="right" style="top:73.2%;left:62.5%;" aria-label="Knee pain">
-              <span class="body-hotspot__dot"></span>
-              <span class="body-hotspot__label">Knee</span>
+            <button class="region-card" data-region="knee" aria-label="Knee pain">
+              <span class="region-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8"/><circle cx="12" cy="12" r="3.2"/><path d="M12 14.5V22"/><path d="M9 7c-1.5 0-3 1.5-3 3.5S7.5 14 9 14M15 7c1.5 0 3 1.5 3 3.5S16.5 14 15 14"/></svg>
+              </span>
+              <span class="region-card__text">
+                <span class="region-card__name">Knee</span>
+                <span class="region-card__sub">Meniscus · ACL · runner</span>
+              </span>
             </button>
-            <button class="body-hotspot" data-region="ankle" data-side="left" style="top:89.3%;left:35.7%;" aria-label="Ankle and foot pain">
-              <span class="body-hotspot__dot"></span>
-              <span class="body-hotspot__label">Ankle / Foot</span>
+            <button class="region-card" data-region="ankle" aria-label="Ankle and foot pain">
+              <span class="region-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v10"/><path d="M8 13c0 3 2.5 5 5 5h5a2 2 0 0 0 0-4h-3"/><path d="M15 14l-2-3"/></svg>
+              </span>
+              <span class="region-card__text">
+                <span class="region-card__name">Ankle / Foot</span>
+                <span class="region-card__sub">Sprains · plantar</span>
+              </span>
             </button>
           </div>
 
@@ -276,7 +292,7 @@
             <div class="body-map__panel-inner" data-region-view="default">
               <span class="eyebrow">Start here</span>
               <h3 class="h3 mt-4">Pick a region.</h3>
-              <p class="lead mt-4">Tap a glowing point on the figure to see the conditions we treat there, the likely root causes, and the treatment tools we use.</p>
+              <p class="lead mt-4">Tap any region card to see the conditions we treat there, the likely root causes, and the treatment tools we use to fix it.</p>
               <div class="body-map__hint">
                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" width="18" height="18"><path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M13 2L3 14h7v8l10-12h-7V2z"/></svg>
                 Nine regions · conditions &amp; treatments for each
@@ -347,7 +363,7 @@
         <div class="grid grid--3 stagger">
           <article class="method-card">
             <div class="method-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M4 11.5C4 8.46 6.46 6 9.5 6S15 8.46 15 11.5V17l4 2v-6.5C19 7.81 15.19 4 10.5 4S2 7.81 2 12.5V19l2-1v-6.5zM9 12a1 1 0 100-2 1 1 0 000 2z"/></svg>
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11V5.5a1.5 1.5 0 0 1 3 0V10"/><path d="M10 10V4.5a1.5 1.5 0 0 1 3 0V10"/><path d="M13 10V5a1.5 1.5 0 0 1 3 0v6"/><path d="M16 11V7a1.5 1.5 0 0 1 3 0v8a6 6 0 0 1-6 6h-3a6 6 0 0 1-5.66-4L2.5 12c-.3-.6.1-1.4.8-1.5l1.2-.2c.5-.1 1 .1 1.3.5L7 13"/></svg>
             </div>
             <h3 class="h4">Manual Therapy</h3>
             <p class="method-card__desc">Hands-on joint mobilization and soft-tissue work. The cornerstone — skilled manual care can make immediate improvements to range of motion and pain in a single visit.</p>
@@ -356,7 +372,7 @@
 
           <article class="method-card method-card--featured">
             <div class="method-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M3 21l6-6m0 0l6-6m-6 6l-3-3m3 3l-3 3m12-12l3 3M9 9l6 6M15 3l6 6"/></svg>
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m3 21 4-4"/><path d="M14.5 3.5 20.5 9.5"/><path d="M17.5 2.5 21.5 6.5"/><path d="M6.5 18.5 14.5 10.5l1 1 4-4-4-4-4 4 1 1L4.5 16.5z"/><circle cx="6" cy="19" r="0.8" fill="currentColor"/></svg>
             </div>
             <h3 class="h4">Integrative Dry Needling</h3>
             <p class="method-card__desc">Thin filament needles at trigger points and fascia — not acupuncture. Releases muscle tension injury and accelerates recovery. Our team holds advanced CIDN and Cert. DN credentials.</p>
@@ -365,7 +381,7 @@
 
           <article class="method-card">
             <div class="method-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M6 2l3 6m6-6l-3 6m-6 0h12L15 22H9L6 8z"/></svg>
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="8" width="3" height="8" rx="0.6"/><rect x="15.5" y="8" width="3" height="8" rx="0.6"/><rect x="2" y="10.5" width="2" height="3" rx="0.4"/><rect x="20" y="10.5" width="2" height="3" rx="0.4"/><line x1="8.5" y1="12" x2="15.5" y2="12"/></svg>
             </div>
             <h3 class="h4">Therapeutic Exercise</h3>
             <p class="method-card__desc">Individualized loading that actually progresses as you do. Not generic sheets — programs built for the joint, the sport, and the life you're getting back to.</p>
@@ -584,8 +600,8 @@
     </div>
   </footer>
 
-  <script src="/js/analytics.js" defer></script>
-  <script src="/js/main.js" defer></script>
-  <script src="/js/faq.js" defer></script>
+  <script src="/js/analytics.js?v=20260418b" defer></script>
+  <script src="/js/main.js?v=20260418b" defer></script>
+  <script src="/js/faq.js?v=20260418b" defer></script>
 </body>
 </html>
