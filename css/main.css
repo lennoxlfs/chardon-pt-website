@@ -2364,11 +2364,11 @@ textarea.form__control { resize: vertical; min-height: 140px; line-height: 1.5; 
   background: #021f4a;
 }
 .class-card__img img {
-  filter: grayscale(45%) brightness(0.78) contrast(1.05) saturate(0.7) sepia(0.08) hue-rotate(170deg);
-  transition: filter 0.4s ease, transform 0.5s ease;
+  filter: none;
+  transition: transform 0.5s ease;
 }
 .class-card:hover .class-card__img img {
-  filter: grayscale(30%) brightness(0.88) contrast(1.05) saturate(0.85) sepia(0.05) hue-rotate(170deg);
+  filter: none;
 }
 .class-card__scrim {
   position: absolute;
