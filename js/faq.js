@@ -126,7 +126,7 @@
   };
 
   /* ---------- Body Map interactions ---------- */
-  const hotspots = document.querySelectorAll('.region-card[data-region], .body-hotspot[data-region]');
+  const hotspots = document.querySelectorAll('.body-point[data-region], .region-card[data-region], .body-hotspot[data-region]');
   const bodyPanel = document.querySelector('.body-map__panel-inner');
 
   function renderRegion(region) {
