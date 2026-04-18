@@ -554,8 +554,15 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   padding: 28px;
 }
 .review-card__stars {
-  display: inline-flex; gap: 2px; color: #f5b800;
-  margin-bottom: 6px;
+  display: inline-flex; gap: 3px; color: #f5b100;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.25));
+}
+.review-card__stars .star {
+  fill: #f5b100;
+  stroke: #c78a00;
+  stroke-width: 0.6;
+  stroke-linejoin: round;
 }
 .review-card__quote {
   color: var(--white-70);
@@ -2049,5 +2056,66 @@ textarea.form__control { resize: vertical; min-height: 140px; line-height: 1.5; 
 @media (prefers-reduced-motion: reduce) {
   .podcast-hero-card, .podcast-hero-card__play, .podcast-card__play { transition: none; }
   .podcast-hero-card:hover { transform: none; }
+}
+
+/* =====================================================================
+   PERFORMANCEFIT CLASS CARDS — brand duotone treatment
+   ===================================================================== */
+
+.class-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(2, 31, 74, 0.35);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.class-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(161, 181, 15, 0.35);
+  box-shadow: 0 22px 40px -24px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(161, 181, 15, 0.1);
+}
+.class-card__img {
+  position: relative;
+  background: #021f4a;
+}
+.class-card__img img {
+  filter: grayscale(45%) brightness(0.78) contrast(1.05) saturate(0.7) sepia(0.08) hue-rotate(170deg);
+  transition: filter 0.4s ease, transform 0.5s ease;
+}
+.class-card:hover .class-card__img img {
+  filter: grayscale(30%) brightness(0.88) contrast(1.05) saturate(0.85) sepia(0.05) hue-rotate(170deg);
+}
+.class-card__scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(2, 31, 74, 0.15) 0%, rgba(2, 31, 74, 0.55) 65%, rgba(10, 15, 21, 0.85) 100%),
+    linear-gradient(135deg, rgba(161, 181, 15, 0.08) 0%, rgba(161, 181, 15, 0) 50%);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.class-card__stamp {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(10, 15, 21, 0.55);
+  border: 1px solid rgba(161, 181, 15, 0.35);
+  border-radius: 8px;
+  padding: 5px 8px;
+  backdrop-filter: blur(6px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px -4px rgba(0, 0, 0, 0.5);
+}
+.class-card .blog-card__tag { color: #a1b50f; }
+.class-card .blog-card__body {
+  border-top: 1px solid rgba(161, 181, 15, 0.12);
+  background: rgba(2, 31, 74, 0.2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .class-card, .class-card__img img { transition: none; }
+  .class-card:hover { transform: none; }
 }
 
