@@ -28,7 +28,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://va.vercel-scripts.com https://vitals.vercel-insights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://va.vercel-scripts.com https://vitals.vercel-insights.com https://formspree.io; frame-src 'self' https://www.google.com https://www.youtube.com; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://va.vercel-scripts.com https://vitals.vercel-insights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://va.vercel-scripts.com https://vitals.vercel-insights.com https://formspree.io; frame-src 'self' https://www.google.com https://www.youtube.com https://www.youtube-nocookie.com; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
         },
         {
           "key": "X-DNS-Prefetch-Control",
@@ -186,7 +186,62 @@
     },
     {
       "source": "/first-visit",
-      "destination": "/new-patients/",
+      "destination": "/faqs/",
+      "permanent": true
+    },
+    {
+      "source": "/new-patients",
+      "destination": "/faqs/",
+      "permanent": true
+    },
+    {
+      "source": "/new-patients/",
+      "destination": "/faqs/",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/meet-cpt/",
+      "permanent": true
+    },
+    {
+      "source": "/about/",
+      "destination": "/meet-cpt/",
+      "permanent": true
+    },
+    {
+      "source": "/team",
+      "destination": "/meet-cpt/",
+      "permanent": true
+    },
+    {
+      "source": "/team/",
+      "destination": "/meet-cpt/",
+      "permanent": true
+    },
+    {
+      "source": "/staff",
+      "destination": "/meet-cpt/",
+      "permanent": true
+    },
+    {
+      "source": "/dave",
+      "destination": "/meet-cpt/",
+      "permanent": true
+    },
+    {
+      "source": "/courtney",
+      "destination": "/meet-cpt/",
+      "permanent": true
+    },
+    {
+      "source": "/megan",
+      "destination": "/meet-cpt/",
+      "permanent": true
+    },
+    {
+      "source": "/brad",
+      "destination": "/meet-cpt/",
       "permanent": true
     },
     {
@@ -195,18 +250,23 @@
       "permanent": true
     },
     {
-      "source": "/staff",
-      "destination": "/team/",
+      "source": "/faq",
+      "destination": "/faqs/",
       "permanent": true
     },
     {
-      "source": "/dave",
-      "destination": "/team/",
+      "source": "/method",
+      "destination": "/life-performance-method/",
       "permanent": true
     },
     {
-      "source": "/courtney",
-      "destination": "/team/",
+      "source": "/lpm",
+      "destination": "/life-performance-method/",
+      "permanent": true
+    },
+    {
+      "source": "/podcast/chardon-biz",
+      "destination": "/podcast/",
       "permanent": true
     }
   ]

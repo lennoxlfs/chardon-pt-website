@@ -30,7 +30,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@500;600;700;800&display=swap">
   <link rel="stylesheet" href="/css/main.css">
 
   <script type="application/ld+json">
@@ -70,12 +70,11 @@
       </a>
       <div class="nav__links">
         <a class="nav__link" data-nav-link href="/">Home</a>
-        <a class="nav__link" data-nav-link href="/services/">Services</a>
-        <a class="nav__link" data-nav-link href="/about/">About</a>
-        <a class="nav__link" data-nav-link href="/team/">Team</a>
-        <a class="nav__link" data-nav-link href="/locations/">Locations</a>
-        <a class="nav__link" data-nav-link href="/new-patients/">New Patients</a>
+        <a class="nav__link" data-nav-link href="/meet-cpt/">Meet CPT</a>
+        <a class="nav__link" data-nav-link href="/faqs/">FAQs</a>
+        <a class="nav__link" data-nav-link href="/life-performance-method/">Life Performance Method</a>
         <a class="nav__link" data-nav-link href="/blog/">Blog</a>
+        <a class="nav__link" data-nav-link href="/podcast/">Podcast</a>
         <a class="nav__link" data-nav-link href="/contact/">Contact</a>
       </div>
       <div class="nav__actions">
@@ -83,7 +82,7 @@
           <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372a1.125 1.125 0 0 0-.852-1.091l-4.423-1.106a1.125 1.125 0 0 0-1.173.417l-.97 1.293a12.035 12.035 0 0 1-7.143-7.143l1.293-.97a1.125 1.125 0 0 0 .417-1.173L6.963 3.102A1.125 1.125 0 0 0 5.872 2.25H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25z"/></svg>
           (440) 299-7171
         </a>
-        <a class="btn btn--primary btn--sm nav__cta" href="/contact/" data-event="appointment_click" data-label="header_cta" data-location="header">Request Appointment</a>
+        <a class="btn btn--primary btn--sm nav__cta" href="/contact/" data-event="appointment_click" data-label="header_cta" data-location="header">Book a Call</a>
         <button class="hamburger" type="button" data-menu-toggle aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
           <span></span><span></span><span></span>
         </button>
@@ -92,21 +91,15 @@
     <div class="mobile-menu" id="mobileMenu" data-menu>
       <div class="mobile-menu__inner">
         <a class="mobile-link" href="/">Home</a>
-        <a class="mobile-link" href="/services/">Services</a>
-        <a class="mobile-link is-nested" href="/services/physical-therapy/">Physical Therapy</a>
-        <a class="mobile-link is-nested" href="/services/dry-needling/">Dry Needling</a>
-        <a class="mobile-link is-nested" href="/services/blood-flow-restriction/">Blood Flow Restriction</a>
-        <a class="mobile-link is-nested" href="/services/golf-performance/">Golf Performance</a>
-        <a class="mobile-link is-nested" href="/services/performancefit-classes/">PerformanceFIT Classes</a>
-        <a class="mobile-link" href="/about/">About</a>
-        <a class="mobile-link" href="/team/">Team</a>
-        <a class="mobile-link" href="/locations/">Locations</a>
-        <a class="mobile-link" href="/new-patients/">New Patients</a>
+        <a class="mobile-link" href="/meet-cpt/">Meet CPT</a>
+        <a class="mobile-link" href="/faqs/">FAQs</a>
+        <a class="mobile-link" href="/life-performance-method/">Life Performance Method</a>
         <a class="mobile-link" href="/blog/">Blog</a>
+        <a class="mobile-link" href="/podcast/">Podcast</a>
         <a class="mobile-link" href="/contact/">Contact</a>
         <div class="mobile-menu__divider"></div>
         <a class="mobile-link" href="tel:+14402997171" data-label="mobile_menu">Call (440) 299-7171</a>
-        <a class="btn btn--primary btn--block" style="margin-top:10px;" href="/contact/" data-event="appointment_click" data-label="mobile_menu_cta" data-location="mobile_menu">Request Appointment</a>
+        <a class="btn btn--primary btn--block" style="margin-top:10px;" href="/contact/" data-event="appointment_click" data-label="mobile_menu_cta" data-location="mobile_menu">Book a Call</a>
       </div>
     </div>
   </header>
@@ -131,7 +124,7 @@
           <h1 id="page-h" class="h1 page-hero__title">Expert Care for Every <span class="text-brand">Challenge</span></h1>
           <p class="page-hero__sub">From 1-on-1 orthopedic physical therapy to CIDN dry needling, blood flow restriction, TPI-certified golf performance therapy, and performance fitness classes — every service is built around a real 60-minute session with a licensed therapist.</p>
           <div class="page-hero__ctas">
-            <a class="btn btn--primary btn--lg" href="/contact/" data-event="appointment_click" data-label="services_hero" data-location="services_hero">Request Appointment</a>
+            <a class="btn btn--primary btn--lg" href="/contact/" data-event="appointment_click" data-label="services_hero" data-location="services_hero">Book a Call</a>
             <a class="btn btn--outline btn--lg" href="tel:+14402997171" data-label="services_hero">Call (440) 299-7171</a>
           </div>
         </div>
@@ -282,7 +275,7 @@
             </div>
             <div>
               <h4>Direct Access</h4>
-              <p>Ohio residents can see a PT without a referral. Most insurance is accepted — we verify for you.</p>
+              <p>Ohio residents can see a PT without a referral. Cash-based, out-of-network — superbills provided, HSA/FSA accepted.</p>
             </div>
           </div>
           <div class="feature">
@@ -313,7 +306,7 @@
           <h2 id="cta-h" class="h2">Not sure which service fits?</h2>
           <p class="lead mt-6">We'll spend 15 minutes on the phone with you — no charge. Tell us what's going on, and we'll recommend the right starting point.</p>
           <div class="mt-8" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-            <a class="btn btn--primary btn--lg" href="/contact/" data-event="appointment_click" data-label="services_cta" data-location="services_cta">Request Appointment</a>
+            <a class="btn btn--primary btn--lg" href="/contact/" data-event="appointment_click" data-label="services_cta" data-location="services_cta">Book a Call</a>
             <a class="btn btn--outline btn--lg" href="tel:+14402997171" data-label="services_cta">Call (440) 299-7171</a>
           </div>
         </div>
@@ -323,7 +316,7 @@
 
   <div class="mobile-action-bar" aria-hidden="false">
     <a class="btn btn--outline" href="tel:+14402997171" data-label="sticky_mobile">Call</a>
-    <a class="btn btn--primary" href="/contact/" data-event="appointment_click" data-label="sticky_mobile" data-location="mobile_sticky">Request Appt</a>
+    <a class="btn btn--primary" href="/contact/" data-event="appointment_click" data-label="sticky_mobile" data-location="mobile_sticky">Book a Call</a>
   </div>
 
   <footer class="site-footer" role="contentinfo">
@@ -352,22 +345,21 @@
         <div class="footer__col">
           <h4>Practice</h4>
           <ul>
-            <li><a href="/about/">About</a></li>
-            <li><a href="/team/">Our Team</a></li>
-            <li><a href="/locations/">Locations</a></li>
-            <li><a href="/new-patients/">New Patients</a></li>
+            <li><a href="/meet-cpt/">Meet CPT</a></li>
+            <li><a href="/faqs/">FAQs</a></li>
+            <li><a href="/life-performance-method/">Life Performance Method</a></li>
             <li><a href="/blog/">Blog</a></li>
+            <li><a href="/podcast/">Podcast</a></li>
             <li><a href="/contact/">Contact</a></li>
           </ul>
         </div>
         <div class="footer__col">
           <h4>Visit Us</h4>
           <ul>
-            <li><a href="https://maps.google.com/?q=520+Fifth+Avenue+Suite+3+Chardon+OH+44024" rel="noopener" data-event="directions_click" data-label="footer_main">520 Fifth Ave Suite #3<br>Chardon, OH 44024</a></li>
-            <li><a href="https://maps.google.com/?q=12930+Woodin+Road+Chardon+OH+44024" rel="noopener" data-event="directions_click" data-label="footer_woodin">12930 Woodin Road<br>Chardon, OH 44024</a></li>
+            <li><a href="https://maps.google.com/?q=520+Fifth+Avenue+Suite+3+Chardon+OH+44024" rel="noopener" data-event="directions_click" data-label="footer_main">520 Fifth Ave, Suite #3<br>Chardon, OH 44024</a></li>
             <li style="margin-top:8px;"><a href="tel:+14402997171" data-label="footer">(440) 299-7171</a></li>
             <li><a href="mailto:team@chardonpt.com">team@chardonpt.com</a></li>
-            <li style="color:var(--white-40);font-size:13px;margin-top:8px;">Mon–Fri · 7am–6pm</li>
+            <li style="color:var(--white-40);font-size:13px;margin-top:8px;">Mon–Thu 6AM–7:30PM · Fri 8AM–5:30PM</li>
           </ul>
         </div>
       </div>

@@ -30,7 +30,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@500;600;700;800&display=swap">
   <link rel="stylesheet" href="/css/main.css">
 
   <script type="application/ld+json">
@@ -74,7 +74,7 @@
       { "@type": "Question", "name": "How long is each physical therapy session?",
         "acceptedAnswer": { "@type": "Answer", "text": "Every visit at Chardon Performance Therapy is a full 60 minutes, 1-on-1 with your licensed physical therapist. We never split your time between patients and never hand you off to an aide or tech." } },
       { "@type": "Question", "name": "Do I need a referral for physical therapy in Ohio?",
-        "acceptedAnswer": { "@type": "Answer", "text": "No. Ohio is a direct-access state, so you can schedule an evaluation without a physician referral. Some insurance plans require a referral for coverage; if yours does, we will help coordinate that with your doctor." } },
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Ohio is a direct-access state, so you can schedule an evaluation without a physician referral. Because we are cash-based and out-of-network, you also do not need a referral for coverage — you just book the visit that works for you." } },
       { "@type": "Question", "name": "How many physical therapy visits will I need?",
         "acceptedAnswer": { "@type": "Answer", "text": "Most patients reach their goals in 6–12 visits, but it depends on your condition, history, and goals. We will give you an honest estimate after your evaluation and reassess regularly so you always know where you stand." } },
       { "@type": "Question", "name": "What conditions do you treat?",
@@ -96,12 +96,11 @@
       </a>
       <div class="nav__links">
         <a class="nav__link" data-nav-link href="/">Home</a>
-        <a class="nav__link" data-nav-link href="/services/">Services</a>
-        <a class="nav__link" data-nav-link href="/about/">About</a>
-        <a class="nav__link" data-nav-link href="/team/">Team</a>
-        <a class="nav__link" data-nav-link href="/locations/">Locations</a>
-        <a class="nav__link" data-nav-link href="/new-patients/">New Patients</a>
+        <a class="nav__link" data-nav-link href="/meet-cpt/">Meet CPT</a>
+        <a class="nav__link" data-nav-link href="/faqs/">FAQs</a>
+        <a class="nav__link" data-nav-link href="/life-performance-method/">Life Performance Method</a>
         <a class="nav__link" data-nav-link href="/blog/">Blog</a>
+        <a class="nav__link" data-nav-link href="/podcast/">Podcast</a>
         <a class="nav__link" data-nav-link href="/contact/">Contact</a>
       </div>
       <div class="nav__actions">
@@ -109,7 +108,7 @@
           <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372a1.125 1.125 0 0 0-.852-1.091l-4.423-1.106a1.125 1.125 0 0 0-1.173.417l-.97 1.293a12.035 12.035 0 0 1-7.143-7.143l1.293-.97a1.125 1.125 0 0 0 .417-1.173L6.963 3.102A1.125 1.125 0 0 0 5.872 2.25H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25z"/></svg>
           (440) 299-7171
         </a>
-        <a class="btn btn--primary btn--sm nav__cta" href="/contact/" data-event="appointment_click" data-label="header_cta" data-location="header">Request Appointment</a>
+        <a class="btn btn--primary btn--sm nav__cta" href="/contact/" data-event="appointment_click" data-label="header_cta" data-location="header">Book a Call</a>
         <button class="hamburger" type="button" data-menu-toggle aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
           <span></span><span></span><span></span>
         </button>
@@ -118,21 +117,15 @@
     <div class="mobile-menu" id="mobileMenu" data-menu>
       <div class="mobile-menu__inner">
         <a class="mobile-link" href="/">Home</a>
-        <a class="mobile-link" href="/services/">Services</a>
-        <a class="mobile-link is-nested" href="/services/physical-therapy/">Physical Therapy</a>
-        <a class="mobile-link is-nested" href="/services/dry-needling/">Dry Needling</a>
-        <a class="mobile-link is-nested" href="/services/blood-flow-restriction/">Blood Flow Restriction</a>
-        <a class="mobile-link is-nested" href="/services/golf-performance/">Golf Performance</a>
-        <a class="mobile-link is-nested" href="/services/performancefit-classes/">PerformanceFIT Classes</a>
-        <a class="mobile-link" href="/about/">About</a>
-        <a class="mobile-link" href="/team/">Team</a>
-        <a class="mobile-link" href="/locations/">Locations</a>
-        <a class="mobile-link" href="/new-patients/">New Patients</a>
+        <a class="mobile-link" href="/meet-cpt/">Meet CPT</a>
+        <a class="mobile-link" href="/faqs/">FAQs</a>
+        <a class="mobile-link" href="/life-performance-method/">Life Performance Method</a>
         <a class="mobile-link" href="/blog/">Blog</a>
+        <a class="mobile-link" href="/podcast/">Podcast</a>
         <a class="mobile-link" href="/contact/">Contact</a>
         <div class="mobile-menu__divider"></div>
         <a class="mobile-link" href="tel:+14402997171" data-label="mobile_menu">Call (440) 299-7171</a>
-        <a class="btn btn--primary btn--block" style="margin-top:10px;" href="/contact/" data-event="appointment_click" data-label="mobile_menu_cta" data-location="mobile_menu">Request Appointment</a>
+        <a class="btn btn--primary btn--block" style="margin-top:10px;" href="/contact/" data-event="appointment_click" data-label="mobile_menu_cta" data-location="mobile_menu">Book a Call</a>
       </div>
     </div>
   </header>
@@ -159,7 +152,7 @@
           <h1 id="page-h" class="h1 page-hero__title">1-on-1 Physical Therapy in <span class="text-brand">Chardon, OH</span></h1>
           <p class="page-hero__sub">A full 60 minutes with your licensed therapist — no aides, no shared sessions, no rotating staff. Just expert hands-on care, a real plan, and the time to actually understand what we're doing and why.</p>
           <div class="page-hero__ctas">
-            <a class="btn btn--primary btn--lg" href="/contact/" data-event="appointment_click" data-label="pt_hero" data-location="pt_hero">Request Appointment</a>
+            <a class="btn btn--primary btn--lg" href="/contact/" data-event="appointment_click" data-label="pt_hero" data-location="pt_hero">Book a Call</a>
             <a class="btn btn--outline btn--lg" href="tel:+14402997171" data-label="pt_hero">Call (440) 299-7171</a>
           </div>
         </div>
@@ -284,8 +277,8 @@
             <h2 id="how-h" class="h2 mt-6">How Your First Few <span class="text-brand">Visits Look</span></h2>
             <p class="lead mt-6">A clear, calm process — so you always know where you are in your recovery and what comes next.</p>
             <div class="mt-8" style="display:flex;gap:12px;flex-wrap:wrap;">
-              <a class="btn btn--primary" href="/new-patients/">New Patient Info</a>
-              <a class="btn btn--outline" href="/contact/" data-event="appointment_click" data-label="pt_how_section" data-location="pt_how">Request Appointment</a>
+              <a class="btn btn--primary" href="/faqs/">FAQs &amp; Pricing</a>
+              <a class="btn btn--outline" href="/contact/" data-event="appointment_click" data-label="pt_how_section" data-location="pt_how">Book a Call</a>
             </div>
           </div>
           <div class="reveal" data-delay="2">
@@ -348,7 +341,7 @@
             <button class="faq__q" type="button">Do I need a referral for physical therapy in Ohio?
               <svg class="faq__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
             </button>
-            <div class="faq__a">No. Ohio is a direct-access state — you can schedule an evaluation without a physician referral. Some insurance plans require a referral for coverage; if yours does, we will help coordinate that with your doctor.</div>
+            <div class="faq__a">No. Ohio is a direct-access state — you can schedule an evaluation without a physician referral. Because we're cash-based and out-of-network, there's no referral required for coverage either.</div>
           </div>
           <div class="faq__item" data-faq>
             <button class="faq__q" type="button">How many physical therapy visits will I need?
@@ -405,9 +398,9 @@
       <div class="container">
         <div class="reveal" style="text-align:center;max-width:720px;margin:0 auto;">
           <h2 id="cta-h" class="h2">Ready to start feeling like yourself again?</h2>
-          <p class="lead mt-6">Tell us what's going on. We'll verify your benefits, schedule your evaluation, and have you on the path to recovery within a week.</p>
+          <p class="lead mt-6">Tell us what's going on. We'll walk you through cash pricing and HSA/FSA options, schedule your evaluation, and have you on the path to recovery within a week.</p>
           <div class="mt-8" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-            <a class="btn btn--primary btn--lg" href="/contact/" data-event="appointment_click" data-label="pt_cta" data-location="pt_cta">Request Appointment</a>
+            <a class="btn btn--primary btn--lg" href="/contact/" data-event="appointment_click" data-label="pt_cta" data-location="pt_cta">Book a Call</a>
             <a class="btn btn--outline btn--lg" href="tel:+14402997171" data-label="pt_cta">Call (440) 299-7171</a>
           </div>
         </div>
@@ -417,7 +410,7 @@
 
   <div class="mobile-action-bar" aria-hidden="false">
     <a class="btn btn--outline" href="tel:+14402997171" data-label="sticky_mobile">Call</a>
-    <a class="btn btn--primary" href="/contact/" data-event="appointment_click" data-label="sticky_mobile" data-location="mobile_sticky">Request Appt</a>
+    <a class="btn btn--primary" href="/contact/" data-event="appointment_click" data-label="sticky_mobile" data-location="mobile_sticky">Book a Call</a>
   </div>
 
   <footer class="site-footer" role="contentinfo">
@@ -446,22 +439,21 @@
         <div class="footer__col">
           <h4>Practice</h4>
           <ul>
-            <li><a href="/about/">About</a></li>
-            <li><a href="/team/">Our Team</a></li>
-            <li><a href="/locations/">Locations</a></li>
-            <li><a href="/new-patients/">New Patients</a></li>
+            <li><a href="/meet-cpt/">Meet CPT</a></li>
+            <li><a href="/faqs/">FAQs</a></li>
+            <li><a href="/life-performance-method/">Life Performance Method</a></li>
             <li><a href="/blog/">Blog</a></li>
+            <li><a href="/podcast/">Podcast</a></li>
             <li><a href="/contact/">Contact</a></li>
           </ul>
         </div>
         <div class="footer__col">
           <h4>Visit Us</h4>
           <ul>
-            <li><a href="https://maps.google.com/?q=520+Fifth+Avenue+Suite+3+Chardon+OH+44024" rel="noopener" data-event="directions_click" data-label="footer_main">520 Fifth Ave Suite #3<br>Chardon, OH 44024</a></li>
-            <li><a href="https://maps.google.com/?q=12930+Woodin+Road+Chardon+OH+44024" rel="noopener" data-event="directions_click" data-label="footer_woodin">12930 Woodin Road<br>Chardon, OH 44024</a></li>
+            <li><a href="https://maps.google.com/?q=520+Fifth+Avenue+Suite+3+Chardon+OH+44024" rel="noopener" data-event="directions_click" data-label="footer_main">520 Fifth Ave, Suite #3<br>Chardon, OH 44024</a></li>
             <li style="margin-top:8px;"><a href="tel:+14402997171" data-label="footer">(440) 299-7171</a></li>
             <li><a href="mailto:team@chardonpt.com">team@chardonpt.com</a></li>
-            <li style="color:var(--white-40);font-size:13px;margin-top:8px;">Mon–Fri · 7am–6pm</li>
+            <li style="color:var(--white-40);font-size:13px;margin-top:8px;">Mon–Thu 6AM–7:30PM · Fri 8AM–5:30PM</li>
           </ul>
         </div>
       </div>
