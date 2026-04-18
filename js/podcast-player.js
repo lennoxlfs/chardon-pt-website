@@ -5,6 +5,8 @@
   var LOGO_URL = '/brand_assets/chardon-biz-podcast.png';
 
   var episodesBySlug = Object.create(null);
+  var dataLoaded = false;
+  var pendingSlug = null;
   var currentSlug = null;
   var audio;
   var player;
@@ -14,7 +16,6 @@
   var elCurrent;
   var elTotal;
   var elSeek;
-  var elCards;
 
   function fmt(t) {
     if (!isFinite(t) || t < 0) return '0:00';
@@ -27,6 +28,7 @@
   }
 
   function buildPlayer() {
+    if (player) return;
     player = document.createElement('section');
     player.className = 'podcast-player';
     player.setAttribute('role', 'region');
@@ -74,6 +76,8 @@
 
     audio = document.createElement('audio');
     audio.preload = 'metadata';
+    audio.playsInline = true;
+    audio.setAttribute('playsinline', '');
     player.appendChild(audio);
 
     document.body.appendChild(player);
@@ -122,6 +126,11 @@
       setPlayIcon(false);
       markCard(currentSlug, false);
     });
+    audio.addEventListener('error', function () {
+      elTitle.textContent = 'Could not load this episode';
+      player.classList.remove('is-playing');
+      setPlayIcon(false);
+    });
   }
 
   function updateSeekFill(pct) {
@@ -140,11 +149,11 @@
 
   function markCard(slug, on) {
     if (!slug) return;
-    var card = document.querySelector('[data-podcast-slug="' + cssEscape(slug) + '"]');
-    if (!card) return;
-    var wrap = card.closest('.podcast-card') || card.parentElement;
-    if (!wrap) return;
-    wrap.classList.toggle('is-playing', !!on);
+    var nodes = document.querySelectorAll('[data-podcast-slug="' + cssEscape(slug) + '"]');
+    for (var i = 0; i < nodes.length; i++) {
+      var wrap = nodes[i].closest('.podcast-card') || nodes[i].closest('.podcast-hero-card') || nodes[i].parentElement;
+      if (wrap) wrap.classList.toggle('is-playing', !!on);
+    }
   }
 
   function cssEscape(s) {
@@ -158,9 +167,11 @@
   }
 
   function togglePlay() {
-    if (!audio.src) return;
+    if (!audio || !audio.src) return;
     if (audio.paused) {
-      audio.play().catch(function () {});
+      audio.play().catch(function (err) {
+        console.warn('[podcast-player] play blocked:', err);
+      });
     } else {
       audio.pause();
     }
@@ -174,63 +185,99 @@
   }
 
   function closePlayer() {
-    audio.pause();
-    player.classList.remove('is-open');
+    if (audio) audio.pause();
+    if (player) player.classList.remove('is-open');
     document.body.classList.remove('has-player');
     markCard(currentSlug, false);
     currentSlug = null;
   }
 
-  function loadEpisode(slug) {
+  function playSlug(slug) {
     var ep = episodesBySlug[slug];
-    if (!ep) return false;
+    if (!ep || !ep.audio) return false;
     if (currentSlug && currentSlug !== slug) markCard(currentSlug, false);
+    var sameEpisode = currentSlug === slug;
     currentSlug = slug;
     elTitle.textContent = ep.title;
     elTitle.title = ep.title;
     elTotal.textContent = ep.duration || '0:00';
-    elCurrent.textContent = '0:00';
-    elSeek.value = '0';
-    updateSeekFill(0);
-    if (audio.src !== ep.audio) {
-      audio.src = ep.audio;
-      audio.load();
+    if (!sameEpisode) {
+      elCurrent.textContent = '0:00';
+      elSeek.value = '0';
+      updateSeekFill(0);
+      if (audio.src !== ep.audio) {
+        audio.src = ep.audio;
+        audio.load();
+      }
     }
     openPlayer();
+    audio.play().catch(function (err) {
+      console.warn('[podcast-player] play blocked:', err);
+      elTitle.textContent = 'Tap play to start · ' + ep.title;
+    });
     return true;
   }
 
   function onCardClick(e) {
-    var link = e.target.closest ? e.target.closest('[data-podcast-slug]') : null;
+    if (e.defaultPrevented) return;
+    if (e.button !== undefined && e.button !== 0) return;
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var link = e.target && e.target.closest ? e.target.closest('[data-podcast-slug]') : null;
     if (!link) return;
     var slug = link.getAttribute('data-podcast-slug');
-    if (!slug || !episodesBySlug[slug]) return;
+    if (!slug) return;
+
     e.preventDefault();
-    if (currentSlug === slug) {
-      togglePlay();
-    } else {
-      if (loadEpisode(slug)) {
-        audio.play().catch(function () {});
+    buildPlayer();
+
+    if (currentSlug === slug && !audio.paused) {
+      audio.pause();
+      return;
+    }
+    if (currentSlug === slug && audio.paused && audio.src) {
+      audio.play().catch(function () {});
+      return;
+    }
+
+    if (dataLoaded) {
+      if (!playSlug(slug)) {
+        console.warn('[podcast-player] no episode for slug:', slug);
       }
+    } else {
+      pendingSlug = slug;
+      elTitle.textContent = 'Loading…';
+      openPlayer();
     }
   }
 
-  function wireCards() {
-    elCards = document.querySelectorAll('[data-podcast-slug]');
-    document.addEventListener('click', onCardClick);
+  function ingest(list) {
+    list.forEach(function (ep) {
+      if (ep && ep.slug) episodesBySlug[ep.slug] = ep;
+    });
+    dataLoaded = true;
+    if (pendingSlug) {
+      var s = pendingSlug;
+      pendingSlug = null;
+      playSlug(s);
+    }
   }
 
   function init() {
+    document.addEventListener('click', onCardClick);
+
     fetch(DATA_URL, { credentials: 'same-origin' })
-      .then(function (r) { return r.ok ? r.json() : []; })
-      .then(function (list) {
-        list.forEach(function (ep) {
-          if (ep && ep.slug) episodesBySlug[ep.slug] = ep;
-        });
-        buildPlayer();
-        wireCards();
+      .then(function (r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
       })
-      .catch(function () { /* non-fatal: links still work */ });
+      .then(ingest)
+      .catch(function (err) {
+        console.warn('[podcast-player] data load failed:', err);
+        dataLoaded = true;
+        if (pendingSlug && player) {
+          elTitle.textContent = 'Episode data unavailable';
+        }
+      });
   }
 
   if (document.readyState === 'loading') {
