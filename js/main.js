@@ -5,7 +5,7 @@
   /* ---------- Header hide on scroll ---------- */
   const header = document.getElementById('siteHeader');
   if (header) {
-    let lastY = window.scrollY;
+    let lastY = 0;
     let ticking = false;
     window.addEventListener('scroll', function () {
       if (!ticking) {
