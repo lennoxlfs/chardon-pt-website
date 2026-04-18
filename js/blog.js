@@ -172,4 +172,57 @@
   } else {
     allCards.forEach(function (card) { card.classList.add('is-visible'); });
   }
+
+  /* ---------- iPhone-page peek carousel (mobile) ----------
+     Viewport scrolls horizontally with snap. Dots track active card.
+     Desktop CSS turns the viewport back into a grid and hides dots. */
+  document.querySelectorAll('[data-carousel]').forEach(function (carousel) {
+    const viewport = carousel.querySelector('[data-carousel-viewport]');
+    const dotsContainer = carousel.querySelector('[data-carousel-dots]');
+    if (!viewport || !dotsContainer) return;
+
+    const cards = Array.from(viewport.children);
+    if (cards.length === 0) return;
+
+    // Build dots
+    dotsContainer.innerHTML = '';
+    cards.forEach(function (_, i) {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'blog-carousel__dot' + (i === 0 ? ' is-active' : '');
+      dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      dot.addEventListener('click', function () {
+        const target = cards[i];
+        viewport.scrollTo({
+          left: target.offsetLeft - viewport.offsetLeft,
+          behavior: 'smooth'
+        });
+      });
+      dotsContainer.appendChild(dot);
+    });
+    const dots = Array.from(dotsContainer.children);
+
+    let ticking = false;
+    function syncDots() {
+      const scrollLeft = viewport.scrollLeft;
+      let closest = 0;
+      let closestDist = Infinity;
+      cards.forEach(function (card, i) {
+        const cardLeft = card.offsetLeft - viewport.offsetLeft;
+        const dist = Math.abs(cardLeft - scrollLeft);
+        if (dist < closestDist) { closestDist = dist; closest = i; }
+      });
+      dots.forEach(function (d, i) {
+        d.classList.toggle('is-active', i === closest);
+      });
+      ticking = false;
+    }
+
+    viewport.addEventListener('scroll', function () {
+      if (!ticking) {
+        window.requestAnimationFrame(syncDots);
+        ticking = true;
+      }
+    }, { passive: true });
+  });
 })();

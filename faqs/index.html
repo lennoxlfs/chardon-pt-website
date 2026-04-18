@@ -207,94 +207,66 @@
           <div class="body-map__figure" role="group" aria-label="Interactive human body diagram — tap a region to reveal conditions treated">
             <svg class="body-map__svg" viewBox="0 0 280 560" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
               <defs>
-                <linearGradient id="bodyGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#1f2f44"/>
-                  <stop offset="100%" stop-color="#0e1825"/>
-                </linearGradient>
-                <linearGradient id="bodyHi" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stop-color="rgba(255,255,255,0.06)"/>
-                  <stop offset="50%" stop-color="rgba(255,255,255,0)"/>
-                  <stop offset="100%" stop-color="rgba(255,255,255,0.06)"/>
-                </linearGradient>
                 <radialGradient id="glowAccent">
-                  <stop offset="0%" stop-color="#a1b50f" stop-opacity="0.6"/>
+                  <stop offset="0%" stop-color="#a1b50f" stop-opacity="0.55"/>
                   <stop offset="70%" stop-color="#a1b50f" stop-opacity="0.08"/>
                   <stop offset="100%" stop-color="#a1b50f" stop-opacity="0"/>
                 </radialGradient>
               </defs>
 
-              <!-- Hot glow behind active region (positioned by JS) -->
               <circle class="body-map__glow" cx="-100" cy="-100" r="55" fill="url(#glowAccent)"/>
 
-              <!-- Athletic male silhouette (front-facing V-shape) -->
-              <g fill="url(#bodyGrad)" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-linejoin="round">
-                <!-- Head -->
-                <ellipse cx="140" cy="38" rx="18" ry="22"/>
-                <!-- Neck (trapezoid) -->
-                <path d="M132 58 L148 58 L150 80 L130 80 Z"/>
-                <!-- Torso: traps to broad shoulders, tapering V to waist to narrow hips -->
-                <path d="M95 82 Q112 75 130 80 L150 80 Q168 75 185 82 L202 108 L208 135 L200 180 L190 230 L172 268 L108 268 L90 230 L80 180 L72 135 L78 108 Z"/>
-                <!-- Left arm (viewer's left) — athletic taper bicep to forearm -->
-                <path d="M78 108 L58 140 L54 185 L56 220 L52 270 L46 300 L56 306 L64 272 L66 222 L68 185 L70 145 Z"/>
-                <!-- Right arm -->
-                <path d="M202 108 L222 140 L226 185 L224 220 L228 270 L234 300 L224 306 L216 272 L214 222 L212 185 L210 145 Z"/>
-                <!-- Hands -->
-                <ellipse cx="50" cy="316" rx="8" ry="12"/>
-                <ellipse cx="230" cy="316" rx="8" ry="12"/>
-                <!-- Hips -->
-                <path d="M108 268 L172 268 L176 308 L150 322 L130 322 L104 308 Z"/>
-                <!-- Left leg — quad flare at mid-thigh, narrow at knee, athletic calf, narrow ankle -->
-                <path d="M108 320 L134 322 L138 380 L132 438 L128 478 L120 510 L102 510 L98 478 L100 438 L96 380 Z"/>
-                <!-- Right leg -->
-                <path d="M150 322 L176 320 L184 380 L182 438 L180 478 L178 510 L160 510 L152 478 L148 438 L142 380 Z"/>
-                <!-- Left foot -->
-                <path d="M100 510 L120 510 L124 538 L96 538 Z"/>
-                <!-- Right foot -->
-                <path d="M160 510 L180 510 L184 538 L156 538 Z"/>
-              </g>
-
-              <!-- Subtle edge highlight overlay -->
-              <g fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="0.8" stroke-linecap="round">
-                <path d="M118 100 L118 260"/>
-                <path d="M162 100 L162 260"/>
-                <path d="M140 90 L140 260"/>
+              <g fill="none" stroke="rgba(200, 215, 240, 0.65)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="140" cy="62" r="28" fill="rgba(18, 28, 44, 0.85)" stroke="rgba(200, 215, 240, 0.7)"/>
+                <line x1="140" y1="92" x2="140" y2="112"/>
+                <line x1="140" y1="112" x2="140" y2="330"/>
+                <line x1="95" y1="130" x2="185" y2="130"/>
+                <line x1="95" y1="130" x2="68" y2="250"/>
+                <line x1="185" y1="130" x2="212" y2="250"/>
+                <circle cx="68" cy="250" r="6" fill="rgba(18, 28, 44, 0.85)"/>
+                <circle cx="212" cy="250" r="6" fill="rgba(18, 28, 44, 0.85)"/>
+                <line x1="112" y1="330" x2="168" y2="330"/>
+                <line x1="112" y1="330" x2="98" y2="490"/>
+                <line x1="168" y1="330" x2="182" y2="490"/>
+                <line x1="82" y1="498" x2="114" y2="498"/>
+                <line x1="166" y1="498" x2="198" y2="498"/>
               </g>
             </svg>
 
             <!-- Hotspots — dot anchored on pain point, label flies out to left or right -->
-            <button class="body-hotspot" data-region="tmj" data-side="right" style="top:9.3%;left:56.4%;" aria-label="TMJ and jaw pain">
+            <button class="body-hotspot" data-region="tmj" data-side="right" style="top:12.9%;left:55.4%;" aria-label="TMJ and jaw pain">
               <span class="body-hotspot__dot"></span>
               <span class="body-hotspot__label">TMJ / Jaw</span>
             </button>
-            <button class="body-hotspot" data-region="neck" data-side="right" style="top:12.5%;left:50%;" aria-label="Neck pain">
+            <button class="body-hotspot" data-region="neck" data-side="right" style="top:18.2%;left:50%;" aria-label="Neck pain">
               <span class="body-hotspot__dot"></span>
               <span class="body-hotspot__label">Neck</span>
             </button>
-            <button class="body-hotspot" data-region="shoulder" data-side="left" style="top:20.5%;left:29.3%;" aria-label="Shoulder pain">
+            <button class="body-hotspot" data-region="shoulder" data-side="left" style="top:23.2%;left:33.9%;" aria-label="Shoulder pain">
               <span class="body-hotspot__dot"></span>
               <span class="body-hotspot__label">Shoulder</span>
             </button>
-            <button class="body-hotspot" data-region="back" data-side="right" style="top:31.3%;left:71.4%;" aria-label="Back and spine pain">
+            <button class="body-hotspot" data-region="back" data-side="right" style="top:39.3%;left:50%;" aria-label="Back and spine pain">
               <span class="body-hotspot__dot"></span>
               <span class="body-hotspot__label">Back &amp; Spine</span>
             </button>
-            <button class="body-hotspot" data-region="elbow" data-side="left" style="top:39.3%;left:20.7%;" aria-label="Elbow pain">
+            <button class="body-hotspot" data-region="elbow" data-side="left" style="top:33.9%;left:29.3%;" aria-label="Elbow pain">
               <span class="body-hotspot__dot"></span>
               <span class="body-hotspot__label">Elbow</span>
             </button>
-            <button class="body-hotspot" data-region="hip" data-side="right" style="top:52.7%;left:61.4%;" aria-label="Hip pain">
+            <button class="body-hotspot" data-region="hip" data-side="right" style="top:58.9%;left:55.7%;" aria-label="Hip pain">
               <span class="body-hotspot__dot"></span>
               <span class="body-hotspot__label">Hip</span>
             </button>
-            <button class="body-hotspot" data-region="wrist" data-side="left" style="top:53.6%;left:18.6%;" aria-label="Wrist and hand pain">
+            <button class="body-hotspot" data-region="wrist" data-side="left" style="top:44.6%;left:24.3%;" aria-label="Wrist and hand pain">
               <span class="body-hotspot__dot"></span>
               <span class="body-hotspot__label">Wrist / Hand</span>
             </button>
-            <button class="body-hotspot" data-region="knee" data-side="right" style="top:78.6%;left:60%;" aria-label="Knee pain">
+            <button class="body-hotspot" data-region="knee" data-side="right" style="top:73.2%;left:62.5%;" aria-label="Knee pain">
               <span class="body-hotspot__dot"></span>
               <span class="body-hotspot__label">Knee</span>
             </button>
-            <button class="body-hotspot" data-region="ankle" data-side="left" style="top:91.1%;left:39.3%;" aria-label="Ankle and foot pain">
+            <button class="body-hotspot" data-region="ankle" data-side="left" style="top:89.3%;left:35.7%;" aria-label="Ankle and foot pain">
               <span class="body-hotspot__dot"></span>
               <span class="body-hotspot__label">Ankle / Foot</span>
             </button>
