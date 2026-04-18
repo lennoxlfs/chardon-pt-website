@@ -123,10 +123,6 @@
           <span class="eyebrow page-hero__eyebrow">Everything You Want to Know</span>
           <h1 id="page-h" class="h1 page-hero__title">What we treat, <span class="accent-gradient">how we treat it.</span></h1>
           <p class="page-hero__sub">Tap a region on the body, watch the process, open a question. This page answers almost everything people ask us before booking — and a few things they forget to.</p>
-          <div class="page-hero__ctas">
-            <a class="btn btn--primary btn--lg" href="/contact/" data-event="appointment_click" data-label="faqs_hero" data-location="faqs_hero">Book a Call</a>
-            <a class="btn btn--outline btn--lg" href="#body-map">Explore the Body Map</a>
-          </div>
         </div>
       </div>
     </section>
@@ -212,82 +208,93 @@
             <svg class="body-map__svg" viewBox="0 0 280 560" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <linearGradient id="bodyGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#1a2a3d"/>
+                  <stop offset="0%" stop-color="#1f2f44"/>
                   <stop offset="100%" stop-color="#0e1825"/>
                 </linearGradient>
+                <linearGradient id="bodyHi" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="rgba(255,255,255,0.06)"/>
+                  <stop offset="50%" stop-color="rgba(255,255,255,0)"/>
+                  <stop offset="100%" stop-color="rgba(255,255,255,0.06)"/>
+                </linearGradient>
                 <radialGradient id="glowAccent">
-                  <stop offset="0%" stop-color="#a1b50f" stop-opacity="0.55"/>
+                  <stop offset="0%" stop-color="#a1b50f" stop-opacity="0.6"/>
                   <stop offset="70%" stop-color="#a1b50f" stop-opacity="0.08"/>
                   <stop offset="100%" stop-color="#a1b50f" stop-opacity="0"/>
                 </radialGradient>
               </defs>
 
-              <!-- Body silhouette (front-facing) -->
-              <g fill="url(#bodyGrad)" stroke="rgba(255,255,255,0.08)" stroke-width="1.2">
+              <!-- Hot glow behind active region (positioned by JS) -->
+              <circle class="body-map__glow" cx="-100" cy="-100" r="55" fill="url(#glowAccent)"/>
+
+              <!-- Athletic male silhouette (front-facing V-shape) -->
+              <g fill="url(#bodyGrad)" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-linejoin="round">
                 <!-- Head -->
-                <circle cx="140" cy="45" r="28"/>
-                <!-- Neck -->
-                <rect x="128" y="68" width="24" height="16" rx="4"/>
-                <!-- Torso -->
-                <path d="M90 86 Q140 78 190 86 L204 200 Q200 240 190 260 L170 276 L110 276 L90 260 Q80 240 76 200 Z"/>
-                <!-- Left arm (viewer's left) -->
-                <path d="M90 90 L70 110 L58 180 L50 240 L44 290 L52 292 L64 242 L76 190 L90 130 Z"/>
+                <ellipse cx="140" cy="38" rx="18" ry="22"/>
+                <!-- Neck (trapezoid) -->
+                <path d="M132 58 L148 58 L150 80 L130 80 Z"/>
+                <!-- Torso: traps to broad shoulders, tapering V to waist to narrow hips -->
+                <path d="M95 82 Q112 75 130 80 L150 80 Q168 75 185 82 L202 108 L208 135 L200 180 L190 230 L172 268 L108 268 L90 230 L80 180 L72 135 L78 108 Z"/>
+                <!-- Left arm (viewer's left) — athletic taper bicep to forearm -->
+                <path d="M78 108 L58 140 L54 185 L56 220 L52 270 L46 300 L56 306 L64 272 L66 222 L68 185 L70 145 Z"/>
                 <!-- Right arm -->
-                <path d="M190 90 L210 110 L222 180 L230 240 L236 290 L228 292 L216 242 L204 190 L190 130 Z"/>
-                <!-- Left hand -->
-                <ellipse cx="48" cy="300" rx="10" ry="14"/>
-                <!-- Right hand -->
-                <ellipse cx="232" cy="300" rx="10" ry="14"/>
-                <!-- Hips / pelvis -->
-                <path d="M100 276 L180 276 L186 320 L154 332 L126 332 L94 320 Z"/>
-                <!-- Left leg -->
-                <path d="M102 326 L128 332 L128 420 L122 500 L108 500 L100 420 Z"/>
+                <path d="M202 108 L222 140 L226 185 L224 220 L228 270 L234 300 L224 306 L216 272 L214 222 L212 185 L210 145 Z"/>
+                <!-- Hands -->
+                <ellipse cx="50" cy="316" rx="8" ry="12"/>
+                <ellipse cx="230" cy="316" rx="8" ry="12"/>
+                <!-- Hips -->
+                <path d="M108 268 L172 268 L176 308 L150 322 L130 322 L104 308 Z"/>
+                <!-- Left leg — quad flare at mid-thigh, narrow at knee, athletic calf, narrow ankle -->
+                <path d="M108 320 L134 322 L138 380 L132 438 L128 478 L120 510 L102 510 L98 478 L100 438 L96 380 Z"/>
                 <!-- Right leg -->
-                <path d="M178 326 L152 332 L152 420 L158 500 L172 500 L180 420 Z"/>
+                <path d="M150 322 L176 320 L184 380 L182 438 L180 478 L178 510 L160 510 L152 478 L148 438 L142 380 Z"/>
                 <!-- Left foot -->
-                <path d="M100 500 L124 500 L128 528 L96 528 Z"/>
+                <path d="M100 510 L120 510 L124 538 L96 538 Z"/>
                 <!-- Right foot -->
-                <path d="M156 500 L180 500 L184 528 L152 528 Z"/>
+                <path d="M160 510 L180 510 L184 538 L156 538 Z"/>
               </g>
 
-              <!-- Hot glow behind active region (filled via JS) -->
-              <circle class="body-map__glow" cx="-100" cy="-100" r="40" fill="url(#glowAccent)"/>
+              <!-- Subtle edge highlight overlay -->
+              <g fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="0.8" stroke-linecap="round">
+                <path d="M118 100 L118 260"/>
+                <path d="M162 100 L162 260"/>
+                <path d="M140 90 L140 260"/>
+              </g>
             </svg>
 
-            <!-- Hotspots (absolute buttons) -->
-            <button class="body-hotspot" data-region="tmj" style="top:5.5%;left:50%;" aria-label="TMJ and jaw pain">
+            <!-- Hotspots — dot anchored on pain point, label flies out to left or right -->
+            <button class="body-hotspot" data-region="tmj" data-side="right" style="top:9.3%;left:56.4%;" aria-label="TMJ and jaw pain">
               <span class="body-hotspot__dot"></span>
               <span class="body-hotspot__label">TMJ / Jaw</span>
             </button>
-            <button class="body-hotspot" data-region="neck" style="top:13.5%;left:50%;" aria-label="Neck pain">
+            <button class="body-hotspot" data-region="neck" data-side="right" style="top:12.5%;left:50%;" aria-label="Neck pain">
               <span class="body-hotspot__dot"></span>
               <span class="body-hotspot__label">Neck</span>
             </button>
-            <button class="body-hotspot" data-region="shoulder" style="top:17%;left:35%;" aria-label="Shoulder pain">
+            <button class="body-hotspot" data-region="shoulder" data-side="left" style="top:20.5%;left:29.3%;" aria-label="Shoulder pain">
               <span class="body-hotspot__dot"></span>
               <span class="body-hotspot__label">Shoulder</span>
             </button>
-            <button class="body-hotspot" data-region="elbow" style="top:33%;left:24%;" aria-label="Elbow pain">
-              <span class="body-hotspot__dot"></span>
-              <span class="body-hotspot__label">Elbow</span>
-            </button>
-            <button class="body-hotspot" data-region="wrist" style="top:52%;left:18%;" aria-label="Wrist and hand pain">
-              <span class="body-hotspot__dot"></span>
-              <span class="body-hotspot__label">Wrist / Hand</span>
-            </button>
-            <button class="body-hotspot" data-region="back" style="top:32%;left:64%;" aria-label="Back and spine pain">
+            <button class="body-hotspot" data-region="back" data-side="right" style="top:31.3%;left:71.4%;" aria-label="Back and spine pain">
               <span class="body-hotspot__dot"></span>
               <span class="body-hotspot__label">Back &amp; Spine</span>
             </button>
-            <button class="body-hotspot" data-region="hip" style="top:55%;left:48%;" aria-label="Hip pain">
+            <button class="body-hotspot" data-region="elbow" data-side="left" style="top:39.3%;left:20.7%;" aria-label="Elbow pain">
+              <span class="body-hotspot__dot"></span>
+              <span class="body-hotspot__label">Elbow</span>
+            </button>
+            <button class="body-hotspot" data-region="hip" data-side="right" style="top:52.7%;left:61.4%;" aria-label="Hip pain">
               <span class="body-hotspot__dot"></span>
               <span class="body-hotspot__label">Hip</span>
             </button>
-            <button class="body-hotspot" data-region="knee" style="top:74%;left:42%;" aria-label="Knee pain">
+            <button class="body-hotspot" data-region="wrist" data-side="left" style="top:53.6%;left:18.6%;" aria-label="Wrist and hand pain">
+              <span class="body-hotspot__dot"></span>
+              <span class="body-hotspot__label">Wrist / Hand</span>
+            </button>
+            <button class="body-hotspot" data-region="knee" data-side="right" style="top:78.6%;left:60%;" aria-label="Knee pain">
               <span class="body-hotspot__dot"></span>
               <span class="body-hotspot__label">Knee</span>
             </button>
-            <button class="body-hotspot" data-region="ankle" style="top:91%;left:62%;" aria-label="Ankle and foot pain">
+            <button class="body-hotspot" data-region="ankle" data-side="left" style="top:91.1%;left:39.3%;" aria-label="Ankle and foot pain">
               <span class="body-hotspot__dot"></span>
               <span class="body-hotspot__label">Ankle / Foot</span>
             </button>
